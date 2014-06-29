@@ -53,7 +53,7 @@ class FileToValueTransformer implements DataTransformerInterface
 
             foreach ($datas as $data) {
                 if (!$data instanceof File) {
-                    $data = new File($this->rootDir . '/' . $this->stripQueryString($data));
+                    $data = new File($this->stripQueryString($data));
                 }
 
                 $value[] = $this->folder . '/' . $data->getFilename();
@@ -62,7 +62,7 @@ class FileToValueTransformer implements DataTransformerInterface
             $value = implode(',', $value);
         } else {
             if (!$datas instanceof File) {
-                $datas = new File($this->rootDir . '/' . $this->stripQueryString($datas));
+                $datas = new File($this->stripQueryString($datas));
             }
 
             $value = $this->folder . '/' . $datas->getFilename();
